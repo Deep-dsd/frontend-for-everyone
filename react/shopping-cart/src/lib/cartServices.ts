@@ -31,7 +31,3 @@ export function addProduct(cartData: Product[], newProduct: Product): Product[] 
   
   return [...cartData, newProduct];
 }
-
-export function clearCart(): Product[] {
-  return [];
-}

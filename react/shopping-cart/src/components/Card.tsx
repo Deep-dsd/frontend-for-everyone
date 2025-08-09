@@ -9,12 +9,10 @@ interface CardProps {
 
 export default function Card({ product, onQuantityUpdate, onRemove }: CardProps) {
   return (
-    <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 flex gap-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-white/20 overflow-hidden">
-      {/* Gradient accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div className="group relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 flex gap-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 overflow-hidden">
       
       {/* Product Image */}
-      <div className="relative w-36 h-36 rounded-2xl overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-300">
+      <div className="relative w-36 h-36 rounded-2xl overflow-hidden shadow-md group-hover:scale-102 transition-transform duration-300">
         <Image
           src={product.imageUrl}
           alt={product.name}
