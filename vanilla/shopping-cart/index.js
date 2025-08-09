@@ -1,6 +1,6 @@
 import { cartData } from "./data.js";
 
-const productListContainer = document.getElementById("product-list")
+const productListContainer = document.getElementById("product-list");
 const totalPriceElement = document.getElementById("total-price");
 
 function createProductCard(product) {
@@ -53,13 +53,14 @@ function createProductCard(product) {
   quantityContainer.appendChild(quantityDisplay);
   quantityContainer.appendChild(increaseBtn);
 
-  const removeButton = document.createElement("button")
-  removeButton.className = "remove-btn"
-  removeButton.textContent = "Remove"
+  const removeButton = document.createElement("button");
+  removeButton.className = "remove-btn";
+  removeButton.textContent = "Remove";
+  removeButton.onclick = () => removeProduct(product.id);
 
   productDetails.appendChild(productPrice);
   productDetails.appendChild(quantityContainer);
-  productDetails.appendChild(removeButton)
+  productDetails.appendChild(removeButton);
 
   productInfo.appendChild(productName);
   productInfo.appendChild(productDescription);
@@ -89,6 +90,15 @@ function updateQuantity(productId, change) {
   
   if (product) {
     product.quantity = Math.max(1, product.quantity + change);
+    renderProducts();
+  }
+}
+
+// Function to remove product
+function removeProduct(productId) {
+  const index = cartData.findIndex(item => item.id === productId);
+  if (index > -1) {
+    cartData.splice(index, 1);
     renderProducts();
   }
 }
