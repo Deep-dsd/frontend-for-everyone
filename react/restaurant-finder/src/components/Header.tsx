@@ -1,14 +1,16 @@
+'use client'
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Header() {
   const router = useRouter();
-  const isDetailsPage = router.pathname.includes('/restaurant/');
+  const pathname = usePathname();
+  const isDetailsPage = pathname.includes('/restaurant/');
 
   return (
     <header className="bg-slate-800 text-white py-4 shadow-lg">
       <div className="container mx-auto px-5 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold">
+        <Link href="/" className="text-2xl font-bold hover:text-blue-300 transition-colors">
           🍽️ FoodieHub
         </Link>
         {isDetailsPage && (
